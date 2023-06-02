@@ -258,6 +258,7 @@ impl ExternalPackageReference {
 #[serde(rename_all = "SCREAMING-KEBAB-CASE")]
 pub enum ExternalPackageReferenceCategory {
     Security,
+    #[serde(alias = "PACKAGE_MANAGER")]
     PackageManager,
     PersistentID,
     Other,
