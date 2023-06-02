@@ -77,7 +77,7 @@ pub struct PackageInformation {
 
     /// <https://spdx.github.io/spdx-spec/3-package-information/#313-concluded-license>
     #[serde(rename = "licenseConcluded")]
-    pub concluded_license: SpdxExpression,
+    pub concluded_license: String,
 
     /// <https://spdx.github.io/spdx-spec/3-package-information/#314-all-licenses-information-from-files>
     #[serde(
@@ -89,7 +89,7 @@ pub struct PackageInformation {
 
     /// <https://spdx.github.io/spdx-spec/3-package-information/#315-declared-license>
     #[serde(rename = "licenseDeclared")]
-    pub declared_license: SpdxExpression,
+    pub declared_license: String,
 
     /// <https://spdx.github.io/spdx-spec/3-package-information/#316-comments-on-license>
     #[serde(
@@ -159,9 +159,9 @@ impl Default for PackageInformation {
             package_checksum: Vec::new(),
             package_home_page: None,
             source_information: None,
-            concluded_license: SpdxExpression::parse("NONE").expect("will always succeed"),
+            concluded_license: "NONE".to_string(), //SpdxExpression::parse("NONE").expect("will always succeed"),
             all_licenses_information_from_files: Vec::new(),
-            declared_license: SpdxExpression::parse("NONE").expect("will always succeed"),
+            declared_license: "NONE".to_string(), // SpdxExpression::parse("NONE").expect("will always succeed"),
             comments_on_license: None,
             copyright_text: "NOASSERTION".to_string(),
             package_summary_description: None,

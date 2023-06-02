@@ -350,7 +350,7 @@ fn process_atom_for_packages(
         }
         Atom::PackageLicenseConcluded(value) => {
             if let Some(package) = &mut package_in_progress {
-                package.concluded_license = SpdxExpression::parse(value).unwrap();
+                package.concluded_license = value.clone(); //SpdxExpression::parse(value).unwrap();
             }
         }
         Atom::PackageLicenseInfoFromFiles(value) => {
@@ -362,7 +362,7 @@ fn process_atom_for_packages(
         }
         Atom::PackageLicenseDeclared(value) => {
             if let Some(package) = &mut package_in_progress {
-                package.declared_license = SpdxExpression::parse(value).unwrap();
+                package.declared_license = value.clone(); //SpdxExpression::parse(value).unwrap();
             }
         }
         Atom::PackageLicenseComments(value) => {
